@@ -1,4 +1,7 @@
-const whitelist = ["http://localhost:3000"];
+const whitelist = [
+  "http://localhost:3000",
+  "https://64a3b5fb57067b1fe293f538--ephemeral-starlight-a6128b.netlify.app",
+];
 
 const corsOptions = {
   origin: (origin, callback) => {
