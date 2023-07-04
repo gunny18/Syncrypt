@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap');
+
+.login{
+    background-image: url("../../../public/back.png");
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: 50px 0px;
+    min-height: 100%;
+}
+
+
+.login_rect{
+    /* margin-top: 10px; */
+    position: absolute;
+    top: 40px;
+    width: 500px;
+    height: 500px;
+    position: relative;
+    right: 230px;
+    object-fit: contain;
+}
+
+.login_heading{
+    font-family: 'Merriweather', serif;
+    position: absolute;
+    bottom: 260px;
+    left: 80px;
+    font-size: xx-large;
+    background-color: white;
+    padding: 5px;
+}
+
+.login__form__container{
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    position: absolute;
+    right: 800px;
+    top: 23%;
+    background-color: rgb(216,211,195);
+    border-radius: 20px;
+}
+
+.login__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.login__form > div > input{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 17px;
+    width: 260px;
+    padding: 10px;
+    border-radius: 4px;
+    border: transparent;
+}
+
+.login__button{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    width: 260px;
+    padding: 8px;
+    border-radius: 8px;
+    border: transparent;
+    color: white;
+    background-color: rgb(168, 157, 120);
+    cursor: pointer;
+}
+
+.login__button:hover{
+    background-color:rgb(169, 154, 105) ;
+}
+
+.login_key{
+    position: absolute;
+    width: 700px;
+    left: 730px;
+    bottom: -340px;
+}
+
