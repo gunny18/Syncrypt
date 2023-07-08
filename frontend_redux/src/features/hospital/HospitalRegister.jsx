@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getHospitalStatus, registerHospital } from "./hospitalSlice";
 import "./HospitalRegister.css";
@@ -10,6 +10,7 @@ import logo from "./images/logo.png"
 
 const HospitalRegister = () => {
   const userRef = useRef();
+  const navigate = useNavigate()
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
@@ -41,6 +42,7 @@ const HospitalRegister = () => {
       setEmail("");
       setPwd("");
       setName("");
+      navigate("/hospital/login", { replace: true });
     } catch (error) {
       console.log("An error occured when registering user - in component");
       console.log(error);

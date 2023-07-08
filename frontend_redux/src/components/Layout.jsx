@@ -42,6 +42,9 @@ const Layout = () => {
           <Link className="nav_links_item" to="/about">
             About
           </Link>
+          {/* <Link className="nav_links_item" to="/contact">
+            Contact-Us
+          </Link> */}
           <Link className="nav_links_item" to="/register">
             Register
           </Link>
