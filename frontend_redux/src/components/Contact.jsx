@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Map from "./images/map.png";
-import { useNavigate } from "react-router-dom";
+import Map from "./images/map.png"
 import social_media from "./images/social_media.png";
 import "./Contact.css";
 import axios from "../utils/axios";
@@ -20,7 +19,6 @@ const Contact = () => {
   ) : (
     <h1 className="msg_title">SEND US A MESSAGE</h1>
   );
-  const navigate = useNavigate();
 
   const afterMailSend = <h1 className="msg_title">MAIL SENT</h1>;
 
