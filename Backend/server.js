@@ -50,6 +50,7 @@ app.use(
   "/api/hospital/activecards",
   require("./routes/hospital/fetchActiveCards")
 );
+app.use("/api/feedback", require("./routes/feedback/send_mail"));
 app.use(verifyJWT);
 app.use("/api/users", require("./routes/users/testUsers"));
 
