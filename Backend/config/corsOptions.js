@@ -1,6 +1,6 @@
 const whitelist = [
   "http://localhost:3000",
-  "https://wondrous-pastelito-f7c630.netlify.app",
+  "https://cute-twilight-3d0b81.netlify.app",
 ];
 
 const corsOptions = {
