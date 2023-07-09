@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import {  useState } from "react";
 import "./Register.css";
-import { Link, useSearchParams, useNavigate } from "react-router-dom";
-import { getAuthRegisterStatus, registerUser } from "./authSlice";
+import { Link, useSearchParams, useNavigate, Navigate } from "react-router-dom";
+import { getAuthRegisterStatus, getAuthState, registerUser } from "./authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "./images/logo.png";
 import sign_up_img from "./images/SignUp.png";
@@ -12,7 +12,7 @@ const Register = () => {
   const [searchParams] = useSearchParams();
   const uid = searchParams.get("uid");
 
-  const userRef = useRef();
+  // const userRef = useRef();
 
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -24,9 +24,13 @@ const Register = () => {
 
   const status = useSelector(getAuthRegisterStatus);
 
-  useEffect(() => {
-    userRef.current.focus();
-  }, []);
+  const auth = useSelector(getAuthState);
+
+  // useEffect(() => {
+  //   if (auth === null) {
+  //     userRef.current.focus();
+  //   }
+  // }, []);
 
   const canRegister = [user, pwd].every(Boolean);
 
@@ -37,7 +41,7 @@ const Register = () => {
       await dispatch(registerUser({ user, email, pwd, uid })).unwrap();
       setUser("");
       setPwd("");
-      navigate("/login");
+      navigate("/login", { replace: true });
     } catch (error) {
       console.log("An error occured when registering user - in component");
       console.log(error);
@@ -55,9 +59,8 @@ const Register = () => {
         <div className={errMsg ? "err" : "hide"}>
           <h1>{errMsg}</h1>
         </div>
-        
+
         <form className="register__form" onSubmit={handleSubmit}>
-        
           <img src={logo} className="logo" alt="logo"></img>
           <h1>Create an account</h1>
 
@@ -68,7 +71,7 @@ const Register = () => {
               name="user"
               id="username"
               value={user}
-              ref={userRef}
+              // ref={userRef}
               autoComplete="off"
               placeholder="Username"
               required
@@ -107,7 +110,9 @@ const Register = () => {
       </section>
     );
 
-  return (
+  return auth ? (
+    <Navigate to="/dashboard" replace />
+  ) : (
     <div className="register">
       {content}
       <img className="register_rect" src={backRect} alt="background rect" />
@@ -117,8 +122,6 @@ const Register = () => {
       </section>
       <img src={sign_up_img} className="sign_up" alt="sign_up" />
     </div>
-    
-    
   );
 };
 

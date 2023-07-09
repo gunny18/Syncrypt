@@ -41,6 +41,9 @@ const Welcome = () => {
           <Link className="wnav_links_item" to="/about">
             About
           </Link>
+          <Link className="wnav_links_item" to="/contact">
+            Contact-Us
+          </Link>
           <Link className="wnav_links_item" to="/hospital">
             Hospital Portal
           </Link>

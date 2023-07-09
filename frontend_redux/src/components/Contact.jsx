@@ -12,10 +12,10 @@ const Contact = () => {
             <section className="contact_form_container">
             <form className="contact__form" >
 
-                    <h1>Enter Your Credentials</h1>
+                    <h1 className='msg_title'>SEND US A MESSAGE</h1>
                     <div>
                     {/* <label htmlFor="username">Username</label> */}
-                    <input
+                    <input className='contents_form'
                         type="email"
                         name="mail"
                         id="mail_id"
@@ -26,21 +26,33 @@ const Contact = () => {
                     </div>
                     <div>
                     {/* <label htmlFor="pwd">Password</label> */}
-                    <input
+                    <input className='contents_form'
                         type="user_name"
                         name="username"
                         id="user_id"
                         placeholder="Name"
                     />
                     </div>
-                    <textarea
-                        className="msg_txt_area"
-                        name="msg_description"
-                        id="msg_desc"
-                        cols="30"
-                        rows="10"
+                    <div>
+                    <input className='contents_form'
+                        type="phNo"
+                        name="Ph_no"
+                        id="Phone"
+                        placeholder="Phone Number"
                     />
-                    <button>Submit</button>
+                    </div>
+
+                    <div>
+                    <input className='contents_form'
+                        type="msg"
+                        name="msg_to_sent"
+                        id="message"
+                        placeholder="Message"
+                    />
+                    </div>
+                    <button className="send_msg_button">
+                        SEND MESSAGE 
+                    </button>
                 </form>
                 </section>
             <h1 className='contact_us_head'>Contact Us</h1>
@@ -51,8 +63,8 @@ const Contact = () => {
                 <h1 className='bold_head'>Our Team</h1> 
                     
                     <ul><small>Ganeshswaminathan R</small></ul>  
-                    <ul><small>Karan</small></ul>
-                    <ul><small>Hemanth</small></ul>
+                    <ul><small>Karan J</small></ul>
+                    <ul><small>Hemanth M E</small></ul>
                     <ul><small>Karthik</small></ul>
         </div>            
             <div className='location'>
@@ -62,7 +74,7 @@ const Contact = () => {
 
             <div className='contact_mail'>
                 <h1 className='bold_head'>Contact</h1>
-               <ul> <small>rfidandnodemcu@gmail.com</small></ul>
+               <ul> <small>syncrypt.tech@gmail.com</small></ul>
             </div>
 
             <div className='social'>

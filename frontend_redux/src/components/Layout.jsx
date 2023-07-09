@@ -3,20 +3,23 @@ import { Outlet, Link } from "react-router-dom";
 import "./Layout.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAuthState, logoutUser } from "../features/auth/authSlice";
-import { clearPatient } from "../features/patient/patientSlice";
+import { clearPatient, getPatient } from "../features/patient/patientSlice";
 import st_logo from "./images/logo.png";
 
 const Layout = () => {
   const auth = useSelector(getAuthState);
+  const currentPatient = useSelector(getPatient)
 
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
     try {
-      await dispatch(logoutUser()).unwrap();
-      dispatch(clearPatient());
+      await dispatch(logoutUser());
+      await dispatch(clearPatient());
     } catch (err) {
       console.log("An error occured when logging out user---->", err);
+      console.log("pateient after logout--->",currentPatient)
+      console.log("user after logout-->",auth)
     }
   };
   const logInOutButton = auth?.currentUser ? (
@@ -33,7 +36,7 @@ const Layout = () => {
     <div className="layout">
       <nav className="layout_nav">
         <img src={st_logo} alt="txt" className="st_logo"></img>
-        
+
         {/* <section>{logoutButtonHosp}</section> */}
         <section className="nav_links">
           <Link className="nav_links_item" to="/">
@@ -42,9 +45,9 @@ const Layout = () => {
           <Link className="nav_links_item" to="/about">
             About
           </Link>
-          {/* <Link className="nav_links_item" to="/contact">
+          <Link className="nav_links_item" to="/contact">
             Contact-Us
-          </Link> */}
+          </Link>
           <Link className="nav_links_item" to="/register">
             Register
           </Link>
@@ -53,7 +56,7 @@ const Layout = () => {
           </Link>
           <Link className="nav_links_item" to="/dashboard">
             Dashboard
-          </Link >
+          </Link>
           {logInOutButton}
         </section>
       </nav>

@@ -7,17 +7,100 @@
     padding-right: 100px;
 }
 
-.contact_form_container{
-    width: 400px;
+.msg_title{
+    font-size: 30px;
     position: relative;
-    top:-350px;
     display: flex;
-    flex-direction: column;
-    justify-content: right;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
 
 }
 
+.send_msg_button {
+    text-decoration: none;
+    background-image: linear-gradient(
+      to right,
+      #000000 0%,
+      #555555 51%,
+      #706f6f 100%
+    );
+    font-family: "Source Sans Pro", serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    position: relative;
+    left: 50px;
+    display: block;
+    border: none;
+    outline: hidden;
+    cursor: pointer;
+    width: 160px;
+    height: 40px;
+    
+  }
+  
+  .send_msg_button:hover {
+    background-position: right center; 
+    color: #ffffff;
+  }
+
+
+.contact_form_container{
+    font-family: "Source Sans Pro" ;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 400px;
+    height: 423px;
+    position: relative;
+    left: 976px;
+    top: -466px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index:1
+
+}
+
+/* .uname{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    margin-bottom: 10px;
+} */
+
+.contents_form{
+    font-family: "Source Sans Pro" ;
+    font-size: 20px;
+    display: block;
+    margin: 12px 79px 0px 15px;
+    /* padding: 10px; */
+    padding-top: 10px;
+    padding-bottom: 15px;
+    width: 92%;
+    height: 5%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #aaa;
+  
+}
+
+
+
+
+
 .contact__form{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: right; 

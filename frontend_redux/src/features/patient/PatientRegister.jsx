@@ -44,7 +44,7 @@ const PatientRegister = () => {
       setDob("");
       setGender("");
       console.log("Successfully registered patient detials");
-      navigate("/dashboard/patient/profile");
+      navigate("/dashboard/patient/profile",{replace:true});
     } catch (error) {
       const errMsg = JSON.parse(error?.message);
       console.log("In catch block in component", errMsg);

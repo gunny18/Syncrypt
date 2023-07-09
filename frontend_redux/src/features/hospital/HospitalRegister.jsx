@@ -1,16 +1,21 @@
 import React from "react";
-import { useEffect, useRef, useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getHospitalStatus, registerHospital } from "./hospitalSlice";
+import {
+  getHospitalAuthState,
+  getHospitalStatus,
+  registerHospital,
+} from "./hospitalSlice";
 import "./HospitalRegister.css";
-import hospRectImg from "./images/hosp_port_he.png"
-import hospPortImg from "./images/hosp_port_img.png"
-import logo from "./images/logo.png"
+import hospRectImg from "./images/hosp_port_he.png";
+import hospPortImg from "./images/hosp_port_img.png";
+import logo from "./images/logo.png";
 
 const HospitalRegister = () => {
-  const userRef = useRef();
-  const navigate = useNavigate()
+  // const userRef = useRef();
+  const navigate = useNavigate();
+  const hospAuth = useSelector(getHospitalAuthState);
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
@@ -21,11 +26,6 @@ const HospitalRegister = () => {
   const dispatch = useDispatch();
 
   const status = useSelector(getHospitalStatus);
-  //   let status = "idle";
-
-  useEffect(() => {
-    userRef.current.focus();
-  }, []);
 
   const canRegister = [email, pwd].every(Boolean);
 
@@ -71,7 +71,6 @@ const HospitalRegister = () => {
               placeholder="Hospital Name"
               value={name}
               required
-              ref={userRef}
               autoComplete="off"
               onChange={(e) => setName(e.target.value)}
             />
@@ -107,7 +106,9 @@ const HospitalRegister = () => {
       </section>
     );
 
-  return (
+  return hospAuth ? (
+    <Navigate to="/hospital/options" replace />
+  ) : (
     <div className="hospRegister">
       {content}
       <img className="hospImg" src={hospRectImg} alt="hosp_port_head" />
@@ -115,7 +116,7 @@ const HospitalRegister = () => {
         <h1>Hospital</h1>
         <h1>Registration!</h1>
       </section>
-      <img src={hospPortImg} alt="hosp back" className="hospPortImg"/>
+      <img src={hospPortImg} alt="hosp back" className="hospPortImg" />
     </div>
   );
 };

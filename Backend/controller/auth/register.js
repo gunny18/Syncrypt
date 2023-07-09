@@ -1,6 +1,7 @@
 const User = require("../../model/User");
 const bcrypt = require("bcrypt");
 const Uid = require("../../model/Uid");
+const crypto = require("crypto");
 
 const registerUser = async (req, res) => {
   const { uid } = req.query;
@@ -30,11 +31,13 @@ const registerUser = async (req, res) => {
   try {
     const newUid = await Uid.create({ uid });
     const hashedPassword = await bcrypt.hash(password, 10);
+    patientId = crypto.randomBytes(5).toString("hex");
     const newUser = await User.create({
       username,
       email,
       password: hashedPassword,
       uid,
+      patientId,
     });
     res.status(200).json({
       message: `New user ${newUser.username} created with uid also created ${newUid.uid}`,

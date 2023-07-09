@@ -21,7 +21,8 @@ userSchema = new Schema({
   },
   patientId: {
     type: String,
-    default: crypto.randomBytes(5).toString("hex"),
+    default: "xxx",
+    required: true,
   },
   patientDetails: {
     type: Boolean,
